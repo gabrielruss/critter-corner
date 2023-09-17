@@ -17,7 +17,9 @@ type HeadingProps = {
   font?: keyof typeof fonts
 }
 
-export const StyledHeading = styled.h1<HeadingProps>`
+export const StyledHeading = styled("h1").withConfig({
+  shouldForwardProp: (prop) => !["size", "color", "font"].includes(prop),
+})<HeadingProps>`
   font-size: ${(props) => props.size && HeadingSizes[props.size]};
   font-weight: bold;
   color: ${(props) => props.color && colors[props.color]};

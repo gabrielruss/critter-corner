@@ -9,7 +9,9 @@ type ImageProps = {
   borderRadius?: keyof typeof borderRadius
 }
 
-export const StyledImage = styled.img<ImageProps>`
+export const StyledImage = styled("img").withConfig({
+  shouldForwardProp: (prop) => !["borderRadius"].includes(prop),
+})<ImageProps>`
   width: 100%;
   object-fit: cover;
 

@@ -12,7 +12,10 @@ type AutoGridProps = {
     | "space-evenly"
 }
 
-const StyledAutoGrid = styled.div<AutoGridProps>`
+const StyledAutoGrid = styled("div").withConfig({
+  shouldForwardProp: (prop) =>
+    !["minWidth", "gap", "justifyItems"].includes(prop),
+})<AutoGridProps>`
   display: grid;
   width: inherit;
 

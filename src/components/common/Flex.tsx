@@ -7,7 +7,10 @@ type FlexProps = {
   justify?: "center" | "flex-start" | "flex-end"
 }
 
-const StyledFlex = styled.div<FlexProps>`
+const StyledFlex = styled("div").withConfig({
+  shouldForwardProp: (prop) =>
+    !["direction", "align", "justify"].includes(prop),
+})<FlexProps>`
   display: flex;
 
   flex-direction: ${(props) => props.direction};
