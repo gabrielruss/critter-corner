@@ -1,8 +1,16 @@
+import { ContentfulImage } from "./contentful"
+
 type Animal = {
-  id: number
+  id: string
   species: string
-  display: string
-  image: string
+  displayName: string
+  image: ContentfulImage
+}
+
+export type AllContentfulAnimal = {
+  allContentfulAnimal: {
+    nodes: Array<Animal>
+  }
 }
 
 export default Animal

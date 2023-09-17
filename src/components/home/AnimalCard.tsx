@@ -7,6 +7,7 @@ import Text, { StyledText } from "../common/Text"
 import Image, { StyledImage } from "../common/Image"
 import Flex from "../common/Flex"
 import { RemSizes, colors } from "../../styles"
+import { getContentfulImageUrl } from "../../utils/contentful"
 
 type AnimalCardProps = {
   animal: Animal
@@ -42,8 +43,11 @@ function AnimalCard({ animal }: AnimalCardProps) {
   return (
     <StyledAnimalCard to={animal.species}>
       <Flex direction="column" align="center">
-        <Image src={animal.image} alt={animal.display} />
-        <Text weight="bold">{animal.display}</Text>
+        <Image
+          src={getContentfulImageUrl(animal.image)}
+          alt={animal.displayName}
+        />
+        <Text weight="bold">{animal.displayName}</Text>
       </Flex>
     </StyledAnimalCard>
   )

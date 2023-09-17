@@ -1,5 +1,5 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import { useStaticQuery, type HeadFC, type PageProps, graphql } from "gatsby"
 
 import Layout from "../components/Layout"
 import Home from "../components/home/Home"
@@ -16,4 +16,16 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+  return <title>{data.site.siteMetadata.title}</title>
+}
