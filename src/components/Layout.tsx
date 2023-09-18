@@ -2,25 +2,28 @@ import React from "react"
 import styled from "styled-components"
 
 import GlobalStyle from "../styles/global"
-import Heading, { StyledHeading } from "./common/Heading"
 import { RemSizes, colors } from "../styles"
+import { Heading } from "./common"
+import { StyledHeading } from "./common/Heading"
 
 const OuterBox = styled.main`
   width: 100%;
   max-width: 1332px;
   position: relative;
   margin: 0 auto;
+`
 
+const HeadingContainer = styled.div`
   ${StyledHeading} {
     user-select: none;
   }
 
-  ${StyledHeading}:first-of-type {
+  ${StyledHeading}:first-child {
     margin-bottom: 0;
     line-height: 88px;
   }
 
-  ${StyledHeading}:last-of-type {
+  ${StyledHeading}:last-child {
     position: absolute;
     top: 88px;
     left: -68px;
@@ -49,12 +52,14 @@ function Layout({ children }: { children: React.ReactNode }) {
     <>
       <GlobalStyle />
       <OuterBox>
-        <Heading size="xlarge" color="blue" font="heading">
-          Critter
-        </Heading>
-        <Heading size="xlarge" color="blue" font="heading">
-          orner
-        </Heading>
+        <HeadingContainer>
+          <Heading size="xlarge" color="blue" font="heading">
+            Critter
+          </Heading>
+          <Heading size="xlarge" color="blue" font="heading">
+            orner
+          </Heading>
+        </HeadingContainer>
         <InnerBox>{children}</InnerBox>
       </OuterBox>
     </>

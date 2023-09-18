@@ -1,9 +1,7 @@
 export type ContentfulImage = {
-  fields: {
-    file: {
-      en_US: {
-        url: string
-      }
-    }
-  }
+  url: string
+}
+
+export type DataWrapper<T> = {
+  data: T
 }

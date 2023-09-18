@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
+import { WrappableComponent } from "../../types"
 
-type FlexProps = {
+type FlexProps = WrappableComponent & {
   direction?: "row" | "column"
   align?: "stretch" | "center" | "flex-start" | "flex-end"
   justify?: "center" | "flex-start" | "flex-end"
@@ -23,9 +24,15 @@ function Flex({
   direction = "row",
   align = "stretch",
   justify = "flex-start",
+  className,
 }: React.PropsWithChildren<FlexProps>) {
   return (
-    <StyledFlex direction={direction} align={align} justify={justify}>
+    <StyledFlex
+      direction={direction}
+      align={align}
+      justify={justify}
+      className={className}
+    >
       {children}
     </StyledFlex>
   )

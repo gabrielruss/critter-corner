@@ -1,3 +1,5 @@
+import { css } from "styled-components"
+
 const fonts = {
   default: "-apple-system, Roboto, sans-serif, serif",
   heading: "Gloria Hallelujah, cursive",
@@ -52,4 +54,12 @@ const borderRadius = {
   large: RemSizes.large,
 }
 
-export { colors, fonts, borderRadius }
+const hoverStyles = css`
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.2s ease-in-out;
+  }
+`
+
+export { colors, fonts, borderRadius, hoverStyles }

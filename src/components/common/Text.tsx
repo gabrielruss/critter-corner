@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { RemSizes, colors } from "../../styles"
+import { WrappableComponent } from "../../types"
 
 enum TextSize {
   small = RemSizes.large,
@@ -14,7 +15,7 @@ enum TextWeight {
   bold = "700",
 }
 
-type TextProps = {
+type TextProps = WrappableComponent & {
   size?: keyof typeof TextSize
   weight?: keyof typeof TextWeight
   color?: keyof typeof colors
@@ -36,9 +37,10 @@ function Text({
   size = "medium",
   weight = "regular",
   color = "black",
+  className,
 }: React.PropsWithChildren<TextProps>) {
   return (
-    <StyledText size={size} weight={weight} color={color}>
+    <StyledText size={size} weight={weight} color={color} className={className}>
       {children}
     </StyledText>
   )

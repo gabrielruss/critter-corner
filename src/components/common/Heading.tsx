@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from "react"
 import styled from "styled-components"
 import { colors, fonts } from "../../styles"
+import { WrappableComponent } from "../../types"
 
 enum HeadingSizes {
   small = "1.5rem",
@@ -10,7 +11,7 @@ enum HeadingSizes {
   xlarge = "4.5rem",
 }
 
-type HeadingProps = {
+type HeadingProps = WrappableComponent & {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
   size?: keyof typeof HeadingSizes
   color?: keyof typeof colors
@@ -32,9 +33,16 @@ function Heading({
   size = "default",
   color = "black",
   font = "default",
+  className,
 }: PropsWithChildren<HeadingProps>) {
   return (
-    <StyledHeading as={as} size={size} color={color} font={font}>
+    <StyledHeading
+      as={as}
+      size={size}
+      color={color}
+      font={font}
+      className={className}
+    >
       {children}
     </StyledHeading>
   )

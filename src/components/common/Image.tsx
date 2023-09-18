@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { borderRadius } from "../../styles"
+import { WrappableComponent } from "../../types"
 
-type ImageProps = {
+type ImageProps = WrappableComponent & {
   src: string
   alt: string
   height?: number
@@ -24,6 +25,7 @@ function Image({
   alt,
   height = 200,
   borderRadius = "medium",
+  className,
 }: ImageProps) {
   return (
     <StyledImage
@@ -31,6 +33,7 @@ function Image({
       alt={alt}
       height={height}
       borderRadius={borderRadius}
+      className={className}
     />
   )
 }

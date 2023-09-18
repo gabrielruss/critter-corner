@@ -1,8 +1,8 @@
 import React, { Fragment } from "react"
 
-import AutoGrid from "../common/AutoGrid"
 import AnimalCard from "./AnimalCard"
 import useContentfulAnimals from "../../hooks/useContentfulAnimals"
+import { AutoGrid } from "../common"
 
 function Home() {
   const animals = useContentfulAnimals()
