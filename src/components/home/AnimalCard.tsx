@@ -31,7 +31,7 @@ const StyledAnimalCard = styled(StyledLink)`
 
 function AnimalCard({ animal }: AnimalCardProps) {
   return (
-    <StyledAnimalCard to={`animal/${animal.species}`}>
+    <StyledAnimalCard to={`${animal.species}`}>
       <Flex direction="column" align="center">
         <Image src={animal.image?.url} alt={animal.displayName} />
         <Text weight="bold">{animal.displayName}</Text>

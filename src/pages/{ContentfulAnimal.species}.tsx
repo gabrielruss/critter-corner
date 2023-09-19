@@ -1,17 +1,19 @@
 import React from "react"
 import { HeadFC, graphql } from "gatsby"
 
-import Layout from "../../components/Layout"
-import AnimalBreedList from "../../components/animal/AnimalBreedList"
-import { Heading } from "../../components/common"
-import { DataWrapper, ContentfulAnimal } from "../../types"
+import Layout from "../components/Layout"
+import AnimalBreedList from "../components/animal/AnimalBreedList"
+import { Heading } from "../components/common"
+import { DataWrapper, ContentfulAnimal } from "../types"
 
 function AnimalBreed({
   data: { contentfulAnimal },
 }: DataWrapper<ContentfulAnimal>) {
   return (
     <Layout>
-      <Heading>{contentfulAnimal.pageTitle}</Heading>
+      <Heading size="medium" margin={0}>
+        {contentfulAnimal.pageTitle}
+      </Heading>
       <AnimalBreedList species={contentfulAnimal.species} />
     </Layout>
   )

@@ -16,15 +16,19 @@ type HeadingProps = WrappableComponent & {
   size?: keyof typeof HeadingSizes
   color?: keyof typeof colors
   font?: keyof typeof fonts
+  margin?: number | "revert"
 }
 
 export const StyledHeading = styled("h1").withConfig({
-  shouldForwardProp: (prop) => !["size", "color", "font"].includes(prop),
+  shouldForwardProp: (prop) =>
+    !["size", "color", "font", "margin"].includes(prop),
 })<HeadingProps>`
   font-size: ${(props) => props.size && HeadingSizes[props.size]};
   font-weight: bold;
   color: ${(props) => props.color && colors[props.color]};
   font-family: ${(props) => props.font && fonts[props.font]};
+  margin: ${(props) =>
+    props.margin === "revert" ? props.margin : `${props.margin}px`};
 `
 
 function Heading({
@@ -34,6 +38,7 @@ function Heading({
   color = "black",
   font = "default",
   className,
+  margin = "revert",
 }: PropsWithChildren<HeadingProps>) {
   return (
     <StyledHeading
@@ -41,6 +46,7 @@ function Heading({
       size={size}
       color={color}
       font={font}
+      margin={margin}
       className={className}
     >
       {children}

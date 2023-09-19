@@ -21,7 +21,7 @@ function AnimalBreedList({ species }: AnimalBreedListProps) {
     <StyledAnimalBreedList>
       <AutoGrid minWidth={300} maxWidth={500} gap={20}>
         {breedList.map((breed) => (
-          <StyledLink to={`/animal/${breed.id}`} key={breed.id}>
+          <StyledLink to={`/${breed.id}`} key={breed.id}>
             <Card
               image={breed.image?.url ?? ""}
               name={breed.name}

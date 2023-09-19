@@ -3,37 +3,8 @@ import styled from "styled-components"
 
 import GlobalStyle from "../styles/global"
 import { RemSizes, colors } from "../styles"
-import { Heading } from "./common"
+import { Flex, Heading } from "./common"
 import { StyledHeading } from "./common/Heading"
-
-const OuterBox = styled.main`
-  width: 100%;
-  max-width: 1332px;
-  position: relative;
-  margin: 0 auto;
-`
-
-const HeadingContainer = styled.div`
-  ${StyledHeading} {
-    user-select: none;
-  }
-
-  ${StyledHeading}:first-child {
-    margin-bottom: 0;
-    line-height: 88px;
-  }
-
-  ${StyledHeading}:last-child {
-    position: absolute;
-    top: 88px;
-    left: -68px;
-
-    /* make it vertical text */
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    letter-spacing: -88px;
-  }
-`
 
 const InnerBox = styled.div`
   max-width: 1160px;
@@ -47,21 +18,48 @@ const InnerBox = styled.div`
   border-left: 1px solid ${colors.black};
 `
 
+const Container = styled.div`
+  width: 100%;
+  max-width: 1332px;
+  margin: 0 auto;
+
+  ${StyledHeading} {
+    user-select: none;
+  }
+`
+
+const TopBox = styled.div`
+  ${StyledHeading} {
+    margin-left: 20px;
+    line-height: 88px;
+  }
+`
+
+const VerticalHeading = styled(Heading)`
+  /* make it vertical text */
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: -88px;
+`
+
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <GlobalStyle />
-      <OuterBox>
-        <HeadingContainer>
-          <Heading size="xlarge" color="blue" font="heading">
+
+      <Container>
+        <TopBox>
+          <Heading size="xlarge" color="blue" font="heading" margin={0}>
             Critter
           </Heading>
-          <Heading size="xlarge" color="blue" font="heading">
+        </TopBox>
+        <Flex>
+          <VerticalHeading size="xlarge" color="blue" font="heading" margin={0}>
             orner
-          </Heading>
-        </HeadingContainer>
-        <InnerBox>{children}</InnerBox>
-      </OuterBox>
+          </VerticalHeading>
+          <InnerBox>{children}</InnerBox>
+        </Flex>
+      </Container>
     </>
   )
 }

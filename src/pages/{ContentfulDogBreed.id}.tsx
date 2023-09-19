@@ -1,15 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
-import Layout from "../../components/Layout"
-import { Flex, Heading, Image, Text } from "../../components/common"
-import { DataWrapper } from "../../types"
-import { ContentfulDogBreed } from "../../types/dogBreed"
+import Layout from "../components/Layout"
+import { Flex, Heading, Image, Text } from "../components/common"
+import { ContentfulDogBreed, DataWrapper } from "../types"
+import { colors } from "../styles"
 
-const DogBreedContainer = styled(Flex)`
+const DogBreedContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 20px;
+`
+
+const Divider = styled.hr`
+  margin: 0;
+  border: 1px solid ${colors.black};
+  width: 100%;
 `
 
 function DogBreed({
@@ -21,7 +27,8 @@ function DogBreed({
     <Layout>
       <DogBreedContainer>
         <Flex direction="column" gap={20}>
-          <Heading>{contentfulDogBreed.name}</Heading>
+          <Heading margin={0}>{contentfulDogBreed.name}</Heading>
+          <Divider />
           <Flex direction="column" gap={12}>
             <Text>
               <b>Origin:</b> {contentfulDogBreed.origin}
@@ -39,7 +46,7 @@ function DogBreed({
         </Flex>
         <Flex direction="column" gap={20}>
           <Image
-            src={contentfulDogBreed.image.url}
+            src={contentfulDogBreed.image?.url}
             alt={contentfulDogBreed.name}
             height={400}
           />
