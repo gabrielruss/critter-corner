@@ -13,4 +13,8 @@ export type AllContentfulDogBreed = {
   }
 }
 
+export type ContentfulDogBreed = {
+  contentfulDogBreed: DogBreed
+}
+
 export default DogBreed

@@ -2,11 +2,10 @@ import React from "react"
 import styled from "styled-components"
 
 import { RemSizes, borderRadius, hoverStyles } from "../../styles"
-import { Flex, Heading, StyledLink, Image, Text } from "."
+import { Flex, Heading, Image, Text } from "."
 import { StyledText } from "./Text"
 
 type CardProps = {
-  to: string
   image: string
   name: string
   description: string
@@ -35,17 +34,15 @@ const CardContainer = styled.div`
   }
 `
 
-function Card({ to, image, name, description, imageAltText }: CardProps) {
+function Card({ image, name, description, imageAltText }: CardProps) {
   return (
-    <StyledLink to={to}>
-      <CardContainer>
-        <Flex direction="column">
-          <Image src={image} alt={imageAltText ?? name} />
-          <Heading>{name}</Heading>
-          <Text size="small">{description}</Text>
-        </Flex>
-      </CardContainer>
-    </StyledLink>
+    <CardContainer>
+      <Flex direction="column">
+        <Image src={image} alt={imageAltText ?? name} />
+        <Heading>{name}</Heading>
+        <Text size="small">{description}</Text>
+      </Flex>
+    </CardContainer>
   )
 }
 
