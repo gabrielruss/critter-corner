@@ -8,7 +8,7 @@ import { colors } from "../styles"
 
 const DogBreedContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2fr;
   gap: 20px;
 `
 
@@ -34,13 +34,14 @@ function DogBreed({
               <b>Origin:</b> {contentfulDogBreed.origin}
             </Text>
             <Text>
-              <b>Lifespan:</b> {contentfulDogBreed.lifespan}
+              <b>Lifespan:</b> {contentfulDogBreed.lifespan} years
             </Text>
             <Text>
-              <b>Friendliness:</b> {contentfulDogBreed.friendliness}
+              <b>Friendliness:</b> {contentfulDogBreed.friendliness} out of 5
             </Text>
             <Text>
-              <b>Shedding Amount:</b> {contentfulDogBreed.sheddingAmount}
+              <b>Shedding Amount:</b> {contentfulDogBreed.sheddingAmount} out of
+              5
             </Text>
           </Flex>
         </Flex>
