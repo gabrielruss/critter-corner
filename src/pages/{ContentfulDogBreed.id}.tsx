@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { HeadFC, graphql } from "gatsby"
 import styled from "styled-components"
 import Layout from "../components/Layout"
 import { Flex, Heading, Image, Text } from "../components/common"
@@ -76,5 +76,11 @@ export const query = graphql`
     }
   }
 `
+
+export const Head: HeadFC<ContentfulDogBreed> = ({
+  data: { contentfulDogBreed },
+}: DataWrapper<ContentfulDogBreed>) => {
+  return <title>{contentfulDogBreed.name}</title>
+}
 
 export default DogBreed
