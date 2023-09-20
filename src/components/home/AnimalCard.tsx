@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import { Animal } from "../../types"
-import { RemSizes, hoverStyles } from "../../styles"
+import { RemSizes, boxShadow, hoverStyles } from "../../styles"
 import { Flex, Image, StyledLink, Text } from "../common"
 import { StyledText } from "../common/Text"
 import { StyledImage } from "../common/Image"
@@ -15,7 +15,7 @@ const StyledAnimalCard = styled(StyledLink)`
   border-radius: ${RemSizes.medium};
   width: 200px;
   cursor: pointer;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  box-shadow: ${boxShadow.normal};
 
   ${StyledText} {
     margin: ${RemSizes.xxlarge} ${RemSizes.medium};

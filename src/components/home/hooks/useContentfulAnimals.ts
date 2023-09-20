@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
-import { AllContentfulAnimal, Animal } from "../types"
+import { AllContentfulAnimal, Animal } from "../../../types"
 
 const useContentfulAnimals = (): Array<Animal> => {
   const { allContentfulAnimal } = useStaticQuery<AllContentfulAnimal>(graphql`

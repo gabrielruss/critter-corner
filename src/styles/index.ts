@@ -54,12 +54,17 @@ const borderRadius = {
   large: RemSizes.large,
 }
 
+const boxShadow = {
+  normal: "0 0 12px rgba(0,0,0,0.2)",
+  hover: "0 0 12px rgba(0, 0, 0, 0.4)",
+}
+
 const hoverStyles = css`
   &:hover {
     cursor: pointer;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    box-shadow: ${boxShadow.hover};
     transition: all 0.2s ease-in-out;
   }
 `
 
-export { colors, fonts, borderRadius, hoverStyles }
+export { colors, fonts, borderRadius, hoverStyles, boxShadow }

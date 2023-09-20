@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { RemSizes, borderRadius, hoverStyles } from "../../styles"
+import { RemSizes, borderRadius, boxShadow, hoverStyles } from "../../styles"
 import { Flex, Heading, Image, Text } from "."
 import { StyledText } from "./Text"
 
@@ -14,7 +14,7 @@ type CardProps = {
 
 const CardContainer = styled.div`
   /* TODO: fix border */
-  border: 1px solid #ccc;
+  box-shadow: ${boxShadow.normal};
   border-radius: ${borderRadius.medium};
   padding: ${RemSizes.large};
 

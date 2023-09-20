@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components"
-import { colors, fonts } from "."
+import { RemSizes, colors, fonts } from "."
 
 const GlobalStyle = createGlobalStyle`
   body {
-    font-size: 16px;
+    font-size: ${RemSizes.large};
     font-weight: 400;
     color: ${colors.black};
     background-color: ${colors.white};
