@@ -4,8 +4,8 @@ import styled from "styled-components"
 import { Animal } from "../../types"
 import { RemSizes, boxShadow, hoverStyles } from "../../styles"
 import { Flex, Image, StyledLink, Text } from "../common"
-import { StyledText } from "../common/Text"
-import { StyledImage } from "../common/Image"
+import { StyledImage } from "../common/Image/styles/Image.styled"
+import { StyledText } from "../common/Text/styles/Text.styled"
 
 type AnimalCardProps = {
   animal: Animal
